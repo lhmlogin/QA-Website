@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Upload Performance Result</title>
+  <link rel="stylesheet" href="css/uploadperf.css">
+  <script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
+  <script type='text/javascript'>
+  $(function(){
+    $('#login').submit(function(){
+      $('#container').hide();
+      $('#processing').show();
+
+/*      $.ajax({
+            url: this.action,
+            type: this.method,
+            data: $(this).serialize(),
+            success: function() {
+                // AJAX request finished, handle the results and hide progress
+                $('#processing').hide();
+            }
+        });
+        return false;
+*/
+    });
+  });
+</script>
+</head>
+<body>
+  <section id='container' class="container">
+    <div class="login">
+      <h1>Upload Performance Result</h1>
+      <form id="login" method="post" action="cgi-bin/upload_performance_result.pl">
+        <p><input type="text" name="big_version" value="" placeholder="Big version, eg. v232"></p>
+        <p><input type="text" name="version_num" value="" placeholder="Version number, eg. 152505"></p>
+        <p class="platform">
+          <label>
+            <input type="radio" name="platform" value="Linux" checked>Linux
+            <input type="radio" name="platform" value="WINDOWS_NT">Windows
+          <label>
+        </p>
+
+        <p class="submit"><input type="submit" name="commit" value="Submit"></p>
+      </form>
+    </div>
+  </section>
+
+<div id="processing" align="center"  style="display: none">
+  <img src="Templates/mainl.gif" alt="Processing" border="0" />
+</div>
+
+</body>
+</html>
